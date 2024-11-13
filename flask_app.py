@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> 05c7584bbb6e066df60c95dc7af7db24a58d6011
 # A very simple Flask Hello World app for you to get started with...
 
 from flask import Flask, render_template, request, session, redirect, url_for, flash
