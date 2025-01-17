@@ -65,7 +65,7 @@ def send_async_email(app, msg):
 
 def send_email(to, subject, template, **kwargs):
     msg = Message(app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + ' ' + subject,
-                  sender=app.config['FLASKY_MAIL_SENDER'], recipients=[to])
+                  sender=app.config['FLASKY_MAIL_SENDER'], recipients=[to])    
     msg.html = render_template(template + '.html', **kwargs)
     thr = Thread(target=send_async_email, args=[app, msg])
     thr.start()
@@ -73,10 +73,10 @@ def send_email(to, subject, template, **kwargs):
 
 def send_simple_message():
   	return requests.post(
-  		"https://api.mailgun.net/v3/sandbox9523ac78048b4ea39c98fb2156b4b2d5.mailgun.org/messages",
+  		"https://api.mailgun.net/v3/sandboxac1a400f6f814141b8b87a5c3d287cc5.mailgun.org/messages",
   		auth=("api", "YOUR_API_KEY"),
-  		data={"from": "Excited User <mailgun@sandbox9523ac78048b4ea39c98fb2156b4b2d5.mailgun.org>",
-  			"to": ["bar@example.com", "YOU@sandbox9523ac78048b4ea39c98fb2156b4b2d5.mailgun.org"],
+  		data={"from": "Excited User <mailgun@sandboxac1a400f6f814141b8b87a5c3d287cc5.mailgun.org>",
+  			"to": ["bar@example.com", "YOU@sandboxac1a400f6f814141b8b87a5c3d287cc5.mailgun.org"],
   			"subject": "Hello",
   			"text": "Testing some Mailgun awesomeness!"})
 
