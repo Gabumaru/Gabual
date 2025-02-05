@@ -1,6 +1,6 @@
 {% extends "bootstrap/base.html" %}
 
-{% block title %}Avaliação semestral{% endblock %}
+{% block title %}IFA{% endblock %}
 
 {% block head %}
 {{ super() }}
@@ -18,15 +18,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Avaliação semestral</a>
+            <a class="navbar-brand" href="/">IFA</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('professores') }}">Cadastro de Professores</a></li>
-                <li><a href="{{ url_for('disciplinas') }}">Cadastro de Disciplinas</a></li>
-                <li><a href="{{ url_for('alunos') }}">Cadastro de Alunos</a></li>
-                <li><a href="{{ url_for('cursos') }}">Cadastro de Cursos</a></li>
                 <li><a href="{{ url_for('ocorrencias') }}">Cadastro de Ocorrências</a></li>
+                <li><a href="{{ url_for('cursos') }}">Rota não disponível</a></li>
+                <li><a href="{{ url_for('cursos') }}">Página não encontrada</a></li>
+
+
             </ul>
         </div>
     </div>

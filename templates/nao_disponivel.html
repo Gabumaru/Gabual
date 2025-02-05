@@ -1,11 +1,111 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-
 {% block page_content %}
 <div class="page-header">
-    <h1>Não disponível</h1>
+    <h1></h1>
 </div>
 
-<p>A data e hora local é {{ moment(current_time).format('LLL') }}.</p>
+<div class="form-group">
+    <label for="disciplina">Disciplina associada:</label>
+    <select class="form-control" id="disciplina" name="disciplina">
+        <option value="DSWA5">DSWA5</option>
+        <option value="GPSA5">GPSA5</option>
+        <option value="IHCA5">IHCA5</option>
+        <option value="SODA5">SODA5</option>
+        <option value="PJIA5">PJIA5</option>
+        <option value="TCOA5">TCOA5</option>
+
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="data_ocorrencia">Data da ocorrência:</label>
+    <input type="date" class="form-control" id="data_ocorrencia" name="data_ocorrencia" required>
+</div>
+
+<div class="form-group">
+    <label for="descricao">Descrição da ocorrência (250 caracteres):</label>
+    <textarea class="form-control" id="descricao" name="descricao" rows="5" maxlength="250" required></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary">Cadastrar</button>
+
+<h2>Relação de ocorrências cadastradas</h2>
+<p>Quantidade: 5</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Disciplina</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>06/02/2025 13:38</td>
+            <td>IHCA5</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+        <tr>
+            <td>05/02/2025 13:36</td>
+            <td>GPSA5</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+        <tr>
+            <td>23/01/2025 17:29</td>
+            <td>PJIA5</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+        <tr>
+            <td>23/01/2025 13:37</td>
+            <td>GPSA5</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+        <tr>
+            <td>01/01/2025 17:23</td>
+            <td>SODA5</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Relação de ocorrências cadastradas por disciplina</h2>
+<p>Quantidade: 5</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Disciplina</th>
+            <th>Data</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GPSA5</td>
+            <td>05/02/2025 13:36</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+        <tr>
+            <td>GPSA5</td>
+            <td>23/01/2025 13:37</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+        <tr>
+            <td>IHCA5</td>
+            <td>06/02/2025 13:38</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+        <tr>
+            <td>PJIA5</td>
+            <td>23/01/2025 17:29</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+        <tr>
+            <td>SODA5</td>
+            <td>01/01/2025 17:23</td>
+            <td>Descrição da ocorrência (250 caracteres)</td>
+        </tr>
+    </tbody>
+</table>
 {% endblock %}

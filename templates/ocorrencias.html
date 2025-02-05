@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>Lista de Ocorrências</h1>
+    {% if ocorrencias %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Disciplina</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ocorrencia in ocorrencias %}
+            <tr>
+              <td>{{ ocorrencia.descricao }}</td>
+              <td>{{ ocorrencia.disciplina }}</td>
+              <td>{{ ocorrencia.data_ocorrencia.strftime('%d/%m/%Y %H:%M') }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Não há ocorrências cadastradas ainda.</p>
+    {% endif %}
+  </div>
+{% endblock %}
