@@ -1,29 +1,38 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-{% block content %}
-  <div class="container">
-    <h1>Lista de Ocorrências</h1>
-    {% if ocorrencias %}
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th>Disciplina</th>
+{% block page_content %}
+<div class="page-header">
+    <h1>Cadastro de Ocorrências</h1>
+</div>
+
+<!-- Formulário para cadastrar ocorrências -->
+<form method="POST" action="{{ url_for('ocorrencias') }}">
+    {{ wtf.form(form) }}
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+
+<hr>
+
+<h2>Relação de ocorrências cadastradas</h2>
+<p>Quantidade: {{ ocorrencias|length }}</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
             <th>Data</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for ocorrencia in ocorrencias %}
-            <tr>
-              <td>{{ ocorrencia.descricao }}</td>
-              <td>{{ ocorrencia.disciplina }}</td>
-              <td>{{ ocorrencia.data_ocorrencia.strftime('%d/%m/%Y %H:%M') }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <p>Não há ocorrências cadastradas ainda.</p>
-    {% endif %}
-  </div>
+            <th>Disciplina</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ocorrencia in ocorrencias %}
+        <tr>
+            <td>{{ ocorrencia.data_ocorrencia.strftime('%d/%m/%Y %H:%M') }}</td>
+            <td>{{ ocorrencia.disciplina }}</td>
+            <td>{{ ocorrencia.descricao }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}
